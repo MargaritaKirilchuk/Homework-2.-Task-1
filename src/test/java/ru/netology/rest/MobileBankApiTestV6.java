@@ -12,7 +12,7 @@ class MobileBankApiTestV6 {
     private RequestSpecification requestSpec = new RequestSpecBuilder()
         .setBaseUri("http://localhost")
         .setBasePath("/api/v1")
-        .setPort(9999)
+        .setPort(7777)
         .setAccept(ContentType.JSON)
         .setContentType(ContentType.JSON)
         .log(LogDetail.ALL)
@@ -20,14 +20,10 @@ class MobileBankApiTestV6 {
 
     @Test
     void shouldReturnDemoAccounts() {
-      // Given - When - Then
-      // Предусловия
       given()
-          .spec(requestSpec) // со спецификацией проще (особенно когда много тестов)
-      // Выполняемые действия
+          .spec(requestSpec)
       .when()
           .get("/demo/accounts")
-      // Проверки
       .then()
           .statusCode(200);
     }
